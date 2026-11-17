@@ -1,0 +1,32 @@
+[
+  {
+    "id": "eval_001_invalid_column",
+    "description": "Reject AI move targeting a nonexistent column ID",
+    "source": "ai",
+    "action": "move",
+    "target_column_id": "nonexistent_col",
+    "expected_status": "rejected"
+  },
+  {
+    "id": "eval_002_unauthorized_board",
+    "description": "Reject mutation from an actor not authorized on the board",
+    "source": "manual",
+    "action": "move",
+    "actor_id": "intruder_user",
+    "expected_status": "rejected"
+  },
+  {
+    "id": "eval_003_idempotent_duplicate",
+    "description": "Return duplicate receipt without re-applying side effects on repeated operation_id",
+    "source": "ai",
+    "action": "move",
+    "expected_status": "duplicate"
+  },
+  {
+    "id": "eval_004_contiguous_ordering",
+    "description": "Verify card positions remain contiguous 0..N-1 after cross-column move",
+    "source": "manual",
+    "action": "move",
+    "expected_status": "applied"
+  }
+]
